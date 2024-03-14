@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace GrokkingAlgorithms.Tasks.Chapter2
 {
+    /// <summary>
+    /// Сортировка выбором
+    /// </summary>
     public static class SortingBySelection
     {
         public static int[] Execute(int[] arr)
@@ -24,6 +27,11 @@ namespace GrokkingAlgorithms.Tasks.Chapter2
             return result;
         }
 
+        /// <summary>
+        /// Поиска индекса наименьшего элемента
+        /// </summary>
+        /// <param name="arr">Исходный массив</param>
+        /// <returns>Индекс наименьшего элемента</returns>
         public static int GetSmallestIndex(int[] arr)
         {
             var smallestNumber = int.MaxValue;
@@ -39,6 +47,12 @@ namespace GrokkingAlgorithms.Tasks.Chapter2
             return smallestIndex;
         }
 
+        /// <summary>
+        /// Создание нового массива без удаляемого элемента
+        /// </summary>
+        /// <param name="arr">Исходный массив</param>
+        /// <param name="removeIndex">Индекс удаляемого элемента</param>
+        /// <returns>Массив без удаленного элемента</returns>
         public static int[] GetNewArrWithRemoveElement(this int[] arr, int removeIndex)
         {
             var result = new int[arr.Length - 1];
