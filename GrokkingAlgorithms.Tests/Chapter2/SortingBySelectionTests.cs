@@ -1,7 +1,7 @@
 using GrokkingAlgorithms.Tasks.Chapter2;
 using System.Runtime.CompilerServices;
 
-namespace GrokkingAlgorithms.Tests
+namespace GrokkingAlgorithms.Tests.Chapter2
 {
     public class SortingBySelectionTests
     {
@@ -11,7 +11,7 @@ namespace GrokkingAlgorithms.Tests
         {
             var array = arrString.Split(' ').Select(element => int.Parse(element)).ToArray();
 
-            var result = SortingBySelection.GetNewArrWithRemoveElement(array, 3);
+            var result = array.GetNewArrWithRemoveElement(3);
 
             var expected = new int[] { 1, 7, 8, 4 };
 
@@ -24,11 +24,11 @@ namespace GrokkingAlgorithms.Tests
         [InlineData("7 8 4")]
         [InlineData("7 8")]
         [InlineData("8")]
-        public void GetSmallestIndex(string arrString) 
+        public void GetSmallestIndex(string arrString)
         {
             var array = arrString.Split(' ').Select(element => int.Parse(element)).ToArray();
 
-            var result = Tasks.Chapter2.SortingBySelection.GetSmallestIndex(array);
+            var result = SortingBySelection.GetSmallestIndex(array);
 
             Assert.Equal(array.Min(), array[result]);
         }
