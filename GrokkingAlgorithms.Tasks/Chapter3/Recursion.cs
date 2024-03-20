@@ -8,6 +8,11 @@ namespace GrokkingAlgorithms.Tasks.Chapter3
 {
     public class Recursion
     {
+        /// <summary>
+        /// Расчет факториала числа
+        /// </summary>
+        /// <param name="number">Число</param>
+        /// <returns></returns>
         public int GetFactorialByNumber(int number)
         {
             for(var i = number; i != 0; i--)
