@@ -1,4 +1,4 @@
-﻿namespace GrokkingAlgorithms.Tasks.Chapter5
+﻿namespace GrokkingAlgorithms.Tasks.Chapter6
 {
     /// <summary>
     /// Поиск кратчайшего пути в графе. В графе перечислены ваши друзья, друзья друзейь друзья друзей друзей и т. д. в соц. сети.

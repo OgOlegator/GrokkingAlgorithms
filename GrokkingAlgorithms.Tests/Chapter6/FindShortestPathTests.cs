@@ -1,11 +1,11 @@
-﻿using GrokkingAlgorithms.Tasks.Chapter5;
+﻿using GrokkingAlgorithms.Tasks.Chapter6;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GrokkingAlgorithms.Tests.Chapter5
+namespace GrokkingAlgorithms.Tests.Chapter6
 {
     public class FindShortestPathTests
     {
