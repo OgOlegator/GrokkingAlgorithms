@@ -12,14 +12,8 @@ namespace GrokkingAlgorithms.Tasks.Chapter4
     public class CountElementsArrRecursion
     {
         public int Execute(List<int> listNumbers)
-        {
-            if (listNumbers.Count == 0)
-                return 0;
-            else
-            {
-                listNumbers.RemoveAt(0);
-                return 1 + Execute(listNumbers);
-            }
-        }
+            => listNumbers.Count == 0 
+                ? 0 
+                : 1 + Execute(listNumbers.Skip(1).ToList());
     }
 }

@@ -13,15 +13,8 @@ namespace GrokkingAlgorithms.Tasks.Chapter4
     {
         /// <returns>Сумма</returns>
         public int Execute(List<int> listNumbers)
-        {
-            if (listNumbers.Count == 0)
-                return 0;
-            else
-            {
-                 var firstNumber = listNumbers.First();
-                 listNumbers.RemoveAt(0);
-                 return firstNumber + Execute(listNumbers);
-            }
-        }
+            => listNumbers.Count == 0
+                ? 0
+                : listNumbers.First() + Execute(listNumbers.Skip(1).ToList());
     }
 }
