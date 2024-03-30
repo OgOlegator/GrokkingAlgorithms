@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Chapter7\" />
+    <Folder Include="Chapter7 %28Алгоритм Дейкстры%29\" />
   </ItemGroup>
 
 </Project>
