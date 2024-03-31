@@ -1,13 +1,8 @@
 ﻿using GrokkingAlgorithms.Tasks.Chapter6;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrokkingAlgorithms.Tests.Chapter6
 {
-    public class FindShortestPathTests
+    public class FindShortestPathUnweightedGraphTests
     {
         [Theory]
         [InlineData("anuj", 2)]
@@ -18,7 +13,7 @@ namespace GrokkingAlgorithms.Tests.Chapter6
         [InlineData("nastya", 4)]
         public void Execute(string findName, int expectedCountSteps)
         {
-            var actual = new FindShortestPath(GetGraph(), "you").Execute(findName);
+            var actual = new FindShortestPathUnweightedGraph(GetGraph(), "you").Execute(findName);
 
             Assert.Equal(expectedCountSteps, actual);
         }
@@ -28,7 +23,7 @@ namespace GrokkingAlgorithms.Tests.Chapter6
         {
             try
             {
-                var actual = new FindShortestPath(GetGraph(), "you").Execute("sasha");
+                var actual = new FindShortestPathUnweightedGraph(GetGraph(), "you").Execute("sasha");
                 Assert.True(false);
             }
             catch (KeyNotFoundException)

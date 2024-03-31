@@ -1,10 +1,11 @@
 ﻿namespace GrokkingAlgorithms.Tasks.Chapter6
 {
     /// <summary>
-    /// Поиск кратчайшего пути в графе. В графе перечислены ваши друзья, друзья друзейь друзья друзей друзей и т. д. в соц. сети.
+    /// Поиск кратчайшего пути в незвешанном графе с использованием Алгоритма поиска в ширину
+    /// В графе перечислены ваши друзья, друзья друзейь друзья друзей друзей и т. д. в соц. сети.
     /// Необходимо найти другого человека по имени.
     /// </summary>
-    public class FindShortestPath
+    public class FindShortestPathUnweightedGraph
     {
         /// <summary>
         /// Элемент в очереди
@@ -22,7 +23,7 @@
         private readonly Dictionary<string, List<string>> _graph;
         private readonly string _firstElement;
 
-        public FindShortestPath(Dictionary<string, List<string>> graph, string firstElement = "you")
+        public FindShortestPathUnweightedGraph(Dictionary<string, List<string>> graph, string firstElement = "you")
         {
             _graph = graph;
             _firstElement = firstElement;
