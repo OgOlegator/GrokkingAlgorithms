@@ -8,9 +8,9 @@
     public class FindShortestPathUnweightedGraph
     {
         /// <summary>
-        /// Элемент в очереди
+        /// Узел графа в очереди
         /// </summary>
-        private class QueueElement
+        class NodeInQueue
         {
             public string Name;
 
@@ -20,35 +20,36 @@
             public int GraphLevel;
         }
 
-        private readonly Dictionary<string, List<string>> _graph;
-        private readonly string _firstElement;
+        readonly Dictionary<string, List<string>> _graph;
+        readonly string _firstNode;
+        Queue<NodeInQueue> _queue;
 
-        public FindShortestPathUnweightedGraph(Dictionary<string, List<string>> graph, string firstElement = "you")
+        public FindShortestPathUnweightedGraph(Dictionary<string, List<string>> graph, string firstNode = "you")
         {
             _graph = graph;
-            _firstElement = firstElement;
+            _firstNode = firstNode;
         }
 
-        public int Execute(string findName)
+        public int Execute(string findNode)
         {
-            var verifiedGraphItems = new HashSet<string>();
+            var verifiedGraphNodes = new HashSet<string>();
 
-            var queue = new Queue<QueueElement>();
-            queue.Enqueue(new QueueElement { Name = _firstElement, GraphLevel = 0 });
+            _queue = new Queue<NodeInQueue>();
+            _queue.Enqueue(new NodeInQueue { Name = _firstNode, GraphLevel = 0 });
 
-            while (queue.Count > 0)
+            while (_queue.Count > 0)
             {
-                var queueElement = queue.Dequeue();
+                var node = _queue.Dequeue();
 
-                if (verifiedGraphItems.Contains(queueElement.Name))
+                if (verifiedGraphNodes.Contains(node.Name))
                     continue;
 
-                if (queueElement.Name == findName)
-                    return queueElement.GraphLevel;
+                if (node.Name == findNode)
+                    return node.GraphLevel;
 
-                AddNextElementsFromGraphToQueue(queueElement, queue);
+                AddNextNodesFromGraphToQueue(node);
 
-                verifiedGraphItems.Add(queueElement.Name);
+                verifiedGraphNodes.Add(node.Name);
             }
 
             throw new KeyNotFoundException();
@@ -57,14 +58,13 @@
         /// <summary>
         /// Добавить следующие элементы графа в очередь
         /// </summary>
-        /// <param name="currentQueueElement">Обработанный элемент очереди</param>
-        /// <param name="queue">Изменяемая очередь</param>
-        private void AddNextElementsFromGraphToQueue(QueueElement currentQueueElement, Queue<QueueElement> queue)
+        /// <param name="node">Обработанный элемент очереди</param>
+        void AddNextNodesFromGraphToQueue(NodeInQueue node)
         {
-            var nextLevel = currentQueueElement.GraphLevel + 1;
+            var nextLevel = node.GraphLevel + 1;
 
-            foreach (var item in _graph[currentQueueElement.Name])
-                queue.Enqueue(new QueueElement 
+            foreach (var item in _graph[node.Name])
+                _queue.Enqueue(new NodeInQueue 
                 { 
                     Name = item, 
                     GraphLevel = nextLevel,

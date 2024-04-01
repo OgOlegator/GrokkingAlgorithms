@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Chapter8 %28Жадные алгоритмы%29\" />
+  </ItemGroup>
+
 </Project>
